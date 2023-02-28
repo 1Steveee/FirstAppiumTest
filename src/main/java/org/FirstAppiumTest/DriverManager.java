@@ -46,7 +46,7 @@ public class DriverManager {
     }
 
     private static void setupDriverTimeouts () {
-        getDriver ().manage ()
+        driver.manage ()
                 .timeouts ()
                 .implicitlyWait (Duration.ofSeconds (30));
     }
