@@ -50,4 +50,8 @@ public class DriverManager {
                 .timeouts ()
                 .implicitlyWait (Duration.ofSeconds (30));
     }
+
+    public void testname() {
+        System.out.println("testing");
+    }
 }
