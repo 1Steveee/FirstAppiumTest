@@ -5,17 +5,20 @@ import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 
-import static org.FirstAppiumTest.DriverManager.createAndroidDriver;
-import static org.FirstAppiumTest.DriverManager.stopDriver;
+
 
 public class BaseTest {
-    @BeforeClass
+
+    protected DriverManager driverManager;
+
+    @BeforeClass(alwaysRun = true)
     public void testSetup () throws MalformedURLException {
-        createAndroidDriver ();
+        driverManager = new DriverManager();
+        driverManager.createAndroidDriver();
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown () {
-        stopDriver ();
+        driverManager.stopDriver();
     }
 }

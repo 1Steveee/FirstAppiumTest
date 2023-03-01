@@ -16,7 +16,7 @@ public class DriverManager {
     private static final String APP_PATH = "C:\\Users\\steve\\Downloads\\Android-NativeDemoApp-0.4.0.apk";
     private static final String APPIUM_SERVER_URL = "http://0.0.0.0:4723/wd/hub";
 
-    private static UiAutomator2Options uiAutomator2Options () {
+    private UiAutomator2Options uiAutomator2Options () {
 
         UiAutomator2Options uiAutomator2Options;
         uiAutomator2Options = new UiAutomator2Options ()
@@ -32,26 +32,23 @@ public class DriverManager {
         return uiAutomator2Options;
     }
 
-    public static void createAndroidDriver () throws MalformedURLException {
+    public void createAndroidDriver () throws MalformedURLException {
         driver = new AndroidDriver (new URL(APPIUM_SERVER_URL),uiAutomator2Options ());
         setupDriverTimeouts();
     }
 
-    public static void stopDriver() {
+    public void stopDriver() {
         driver.quit();
     }
 
-    public static <D extends AppiumDriver> D getDriver () {
-        return (D) driver;
+    public AppiumDriver getDriver() {
+        return driver;
     }
 
-    private static void setupDriverTimeouts () {
+    private void setupDriverTimeouts () {
         driver.manage ()
                 .timeouts ()
                 .implicitlyWait (Duration.ofSeconds (30));
     }
 
-    public void testname() {
-        System.out.println("testing");
-    }
 }

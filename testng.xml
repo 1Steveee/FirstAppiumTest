@@ -6,6 +6,7 @@
             <class name="org.FirstAppiumTest.AppiumTest">
                 <methods>
                     <include name="testTitle"/>
+                    <include name="testSignUp"/>
                 </methods>
             </class>
         </classes>
