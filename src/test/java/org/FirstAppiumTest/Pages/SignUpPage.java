@@ -21,6 +21,10 @@ public class SignUpPage {
         return driver.findElement (AppiumBy.accessibilityId ("input-email"));
     }
 
+    private WebElement okSuccessMessageButton() {
+        return driver.findElement(AppiumBy.id("android:id/button1"));
+    }
+
     private WebElement passwordField () {
         return driver.findElement (AppiumBy.accessibilityId ("input-password"));
     }
@@ -41,6 +45,7 @@ public class SignUpPage {
         return driver.findElement (AppiumBy.id ("android:id/message")).getText ();
     }
 
+
     public void signUp(String email, String password) {
         HomePage homePage = new HomePage (driver);
         homePage.openMenu ("Login");
@@ -49,5 +54,9 @@ public class SignUpPage {
         passwordField ().sendKeys (password);
         confirmPasswordField ().sendKeys (password);
         signUpBtn ().click ();
+    }
+
+    public void dismissSuccessMessage() {
+        okSuccessMessageButton().click();
     }
 }
