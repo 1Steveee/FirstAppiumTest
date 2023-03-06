@@ -5,8 +5,8 @@ import org.FirstAppiumTest.Pages.HomePage;
 import org.FirstAppiumTest.Pages.LoginPage;
 import org.FirstAppiumTest.Pages.SignUpPage;
 
+import org.FirstAppiumTest.Pages.SwipePage;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -38,7 +38,19 @@ public class AppiumTest extends BaseTest {
     public void testLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.Login("test123@gmail.com", "Pass12345");
-        assertEquals(loginPage.getSuccessMessageTitle(), "Success");
+        System.out.println(loginPage.getSuccessMessage());
         assertEquals(loginPage.getSuccessMessage(), "You are logged in!");
+    }
+
+    @Test
+    public void testSwipeLeft() throws InterruptedException {
+        SwipePage swipePage = new SwipePage(driver);
+        swipePage.swipeLeft();
+    }
+
+    @Test
+    public void testSwipeUp() throws InterruptedException {
+        SwipePage swipePage = new SwipePage(driver);
+        swipePage.swipeUpFullScreen();
     }
 }

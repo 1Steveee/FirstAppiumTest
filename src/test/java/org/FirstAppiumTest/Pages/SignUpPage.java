@@ -42,7 +42,9 @@ public class SignUpPage {
     }
 
     public String getSuccessMessage () {
-        return driver.findElement (AppiumBy.id ("android:id/message")).getText ();
+        String successMessage = driver.findElement (AppiumBy.id ("android:id/message")).getText ();
+        dismissSuccessMessage();
+        return successMessage;
     }
 
 

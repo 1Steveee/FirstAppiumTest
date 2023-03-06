@@ -8,7 +8,8 @@
                     <include name="testTitle"/>
                     <include name="testSignUp"/>
                     <include name="testLogin"/>
-
+                    <include name="testSwipeLeft"/>
+                    <include name="testSwipeUp"/>
                 </methods>
             </class>
         </classes>

@@ -3,6 +3,11 @@ package org.FirstAppiumTest.Pages;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
 
@@ -10,6 +15,10 @@ public class LoginPage {
 
     public LoginPage(AppiumDriver driver) {
         this.driver = driver;
+    }
+
+    private WebElement successMessageCloseButton() {
+        return driver.findElement(AppiumBy.id("android:id/button1"));
     }
 
     private WebElement loginTab() {
@@ -28,7 +37,10 @@ public class LoginPage {
     }
 
     private WebElement successMessage() {
-        return driver.findElement(AppiumBy.id("android:id/message"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement element = driver.findElement(AppiumBy.id("android:id/message"));
+        return wait.until(ExpectedConditions.visibilityOf(element));
+
     }
 
     public String getSuccessMessage() {
@@ -42,13 +54,17 @@ public class LoginPage {
 
 
     public void Login(String email, String password) {
-        SignUpPage signUpPage = new SignUpPage(driver);
-        signUpPage.dismissSuccessMessage();
+
         loginTab().click();
         clearLoginFormFields();
         emailField().sendKeys(email);
         passwordField().sendKeys(password);
         loginButton().click();
+    }
+
+
+    public void closeSuccessMessage() {
+        successMessageCloseButton().click();
     }
 
     public String getSuccessMessageTitle() {

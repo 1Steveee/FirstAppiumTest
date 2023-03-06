@@ -2,6 +2,7 @@ package org.FirstAppiumTest.Pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
 
@@ -9,6 +10,10 @@ public class HomePage {
 
     public HomePage(AppiumDriver driver) {
         this.driver = driver;
+    }
+
+    private WebElement swipeLink() {
+        return driver.findElement(AppiumBy.accessibilityId("Swipe"));
     }
 
     public String getTitle () {
@@ -25,5 +30,9 @@ public class HomePage {
         return driver.findElement (
                         AppiumBy.androidUIAutomator ("new UiSelector().text(\"Demo app for the appium-boilerplate\")"))
                 .getText ();
+    }
+
+    public void openSwipePage() {
+        swipeLink().click();
     }
 }
