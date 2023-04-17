@@ -32,7 +32,4 @@ public class HomePage {
                 .getText ();
     }
 
-    public void openSwipePage() {
-        swipeLink().click();
-    }
 }

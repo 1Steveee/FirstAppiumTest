@@ -47,17 +47,14 @@ public class LoginPage {
         return successMessage().getText();
     }
 
-    public void clearLoginFormFields() {
-        emailField().clear();
-        passwordField().clear();
-    }
+
 
 
     public void Login(String email, String password) {
-
         loginTab().click();
-        clearLoginFormFields();
+        emailField().clear();
         emailField().sendKeys(email);
+        passwordField().clear();
         passwordField().sendKeys(password);
         loginButton().click();
     }

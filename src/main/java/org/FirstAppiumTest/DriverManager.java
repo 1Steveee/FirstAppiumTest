@@ -12,9 +12,9 @@ import java.net.URL;
 
 public class DriverManager {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private final String APP_PATH = System.getProperty ("user.home") + "\\Downloads\\Android-NativeDemoApp-0.4.0.apk";
-    private final String APPIUM_SERVER_URL = "http://0.0.0.0:4723/wd/hub";
+    private final String APPIUM_SERVER_URL = "http://localhost:4723/wd/hub";
 
     private UiAutomator2Options uiAutomator2Options () {
 
@@ -41,7 +41,7 @@ public class DriverManager {
         driver.quit();
     }
 
-    public AppiumDriver getDriver() {
+    public AndroidDriver getDriver() {
         return driver;
     }
 

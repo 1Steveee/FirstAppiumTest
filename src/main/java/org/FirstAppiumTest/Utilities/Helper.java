@@ -15,14 +15,17 @@ public class Helper {
     private Dimension size;
     private PointerInput pointerInput;
     private Sequence swipe;
+    private int height;
+    private int width;
 
     public Helper(AppiumDriver driver) {
         this.driver = driver;
         this.size = driver.manage().window().getSize();
         this.pointerInput = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+
     }
 
-    public void swipeFullPage() throws InterruptedException {
+    public void swipeFullPage() {
 
         Point pointOneStart = new Point((size.width / 2),(int) (size.height * 0.8));
         Point pointOneEnd = new Point((size.width / 2),(int) (size.height * 0.2));
@@ -31,7 +34,7 @@ public class Helper {
         swipe(swipe, pointOneStart,pointOneEnd);
     }
 
-    public void swipeHalfPage() throws InterruptedException {
+    public void swipeHalfPage() {
 
         Point pointOneStart = new Point((size.width / 2), (int) (size.height * 0.8));
         Point pointOneEnd = new Point((size.width / 2), (int) (size.height * 0.4));
@@ -41,7 +44,7 @@ public class Helper {
     }
 
 
-    public void swipeLeft() throws InterruptedException {
+    public void swipeLeft()  {
         Point pointOneStart = new Point((int)(size.width * .8), (size.height / 2));
         Point pointOneEnd = new Point((int)(size.width * .2), (size.height / 2));
 
@@ -49,7 +52,7 @@ public class Helper {
         swipe(swipe, pointOneStart,pointOneEnd);
     }
 
-    private void swipe(Sequence swipe,Point pointOneStart, Point pointOneEnd) throws InterruptedException {
+    private void swipe(Sequence swipe,Point pointOneStart, Point pointOneEnd) {
         swipe.addAction(pointerInput
                 .createPointerMove(Duration.ofMillis(0),PointerInput.Origin.viewport(),pointOneStart.x,pointOneStart.y));
         swipe.addAction(pointerInput.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
@@ -58,6 +61,5 @@ public class Helper {
         swipe.addAction(pointerInput.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         driver.perform(Arrays.asList(swipe));
-        Thread.sleep(3000);
     }
 }

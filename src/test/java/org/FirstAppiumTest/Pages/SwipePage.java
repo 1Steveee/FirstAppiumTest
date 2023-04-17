@@ -16,22 +16,19 @@ public class SwipePage {
         this.helper = new Helper(driver);
     }
 
-    public void opensSwipePage() throws InterruptedException {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.closeSuccessMessage();
+    public void opensSwipePage() {
         HomePage homePage = new HomePage(driver);
-        homePage.openSwipePage();
+        homePage.openMenu("Swipe");
     }
 
-    public void swipeUpFullScreen() throws InterruptedException {
-        Thread.sleep(3000);
+    public void swipeUpFullScreen() {
+        opensSwipePage();
         helper.swipeFullPage();
         helper.swipeHalfPage();
     }
 
-    public void swipeLeft() throws InterruptedException{
+    public void swipeLeft(){
         opensSwipePage();
-        Thread.sleep(3000);
         helper.swipeLeft();
     }
 
