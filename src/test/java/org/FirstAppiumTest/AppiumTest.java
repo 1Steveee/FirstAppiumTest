@@ -1,6 +1,7 @@
 package org.FirstAppiumTest;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.FirstAppiumTest.Pages.*;
 
 import org.testng.annotations.BeforeClass;
@@ -10,7 +11,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class AppiumTest extends BaseTest {
 
-    private AppiumDriver driver;
+    private AndroidDriver driver;
     private SwipePage swipePage;
 
     @BeforeClass
@@ -62,5 +63,12 @@ public class AppiumTest extends BaseTest {
         formsPage.submitForm();
         assertEquals("This button is active", formsPage.getAlertMessageText());
         formsPage.closeAlert();
+    }
+
+    @Test
+    public void testDragAndDrop() {
+        DragPage dragPage = new DragPage(driver);
+        dragPage.dragAndDropPieces();
+        assertEquals("Congratulations",dragPage.congratsMessage());
     }
 }

@@ -17,6 +17,7 @@ public class HomePage {
     }
 
     public String getTitle () {
+
         return driver.findElement (AppiumBy.androidUIAutomator ("new UiSelector().text(\"WEBDRIVER\")"))
                 .getText ();
     }
