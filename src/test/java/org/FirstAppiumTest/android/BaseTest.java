@@ -1,5 +1,6 @@
-package org.FirstAppiumTest;
+package org.FirstAppiumTest.android;
 
+import org.FirstAppiumTest.DriverManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 

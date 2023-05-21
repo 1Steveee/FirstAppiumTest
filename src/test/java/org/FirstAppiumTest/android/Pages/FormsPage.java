@@ -1,4 +1,4 @@
-package org.FirstAppiumTest.Pages;
+package org.FirstAppiumTest.android.Pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;

@@ -1,8 +1,7 @@
-package org.FirstAppiumTest;
+package org.FirstAppiumTest.android;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import org.FirstAppiumTest.Pages.*;
+import org.FirstAppiumTest.android.Pages.*;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

@@ -1,16 +1,13 @@
-package org.FirstAppiumTest.Pages;
+package org.FirstAppiumTest.android.Pages;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import org.apache.commons.digester.annotations.providers.CallParamRuleProvider;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
-import javax.xml.stream.Location;
-import java.security.PublicKey;
 import java.time.Duration;
 import java.util.Collections;
 

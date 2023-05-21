@@ -3,7 +3,7 @@
 <suite name="Appium Test">
     <test name = "Appium Test">
         <classes>
-            <class name="org.FirstAppiumTest.AppiumTest">
+            <class name="org.FirstAppiumTest.android.AppiumTest">
                 <methods>
                     <include name="testTitle"/>
                     <include name="testSignUp"/>
