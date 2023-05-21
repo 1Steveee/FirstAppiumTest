@@ -23,4 +23,8 @@ public class HomePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == \"WEBDRIVER\"`]"))).getText();
     }
+
+    public void testTest() {
+        System.out.println("testing");
+    }
 }
