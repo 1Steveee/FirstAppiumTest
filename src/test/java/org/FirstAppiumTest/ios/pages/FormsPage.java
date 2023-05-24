@@ -54,23 +54,35 @@ public class FormsPage {
         homePage.openMenu("Forms");
     }
 
-    public void fillForm(String inputField, int dropdownValue)  {
+    private WebElement doneButton() {
+        return driver.findElement(AppiumBy.accessibilityId("done_button"));
+    }
+
+    public void fillForm(String inputField, String dropdownValue)  {
         navigateToFormsPage();
         textInputField().sendKeys(inputField);
         switchButton().click();
-//        selectDropdownValue(dropdownValue);
+        selectDropdownValue(dropdownValue);
+        doneButton().click();
     }
 
-    private void selectDropdownValue(int dropdownValue) {
+    private void selectDropdownValue(String dropdownValue) {
         dropdownMenu().click();
-        dropdownList().get(dropdownValue).click();
+        dropDownItem().sendKeys(dropdownValue);
+    }
+
+    private WebElement dropDownItem() {
+        return driver.findElement(AppiumBy
+                .iOSClassChain
+                        ("**/XCUIElementTypePickerWheel[`value == \"Select an item...\"`]"));
+    }
+
+    private WebElement dropDownElement() {
+        return driver.findElement(AppiumBy.accessibilityId("text_input"));
     }
 
     public String getDropdownText() {
-        return driver.findElement(AppiumBy
-                .iOSClassChain
-                        ("**/XCUIElementTypePickerWheel[`value == \"Select an item...\"`]" +
-                                "/XCUIElementTypeOther[1]")).getText();
+        return dropDownElement().getAttribute("value");
     }
     public String getInputFieldText() {
         return findElement("input-text-result").getText();

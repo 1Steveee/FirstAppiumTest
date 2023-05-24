@@ -47,6 +47,7 @@ public class SignUpPage {
         passwordField().sendKeys(password);
         confirmPasswordField().sendKeys(password);
         signUpBtn().click();
+        driver.hideKeyboard();
     }
 
 

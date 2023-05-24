@@ -45,12 +45,12 @@ public class AppiumTest extends BaseTest{
     @Test
     public void testFormsSignup()  {
         FormsPage formsPage = new FormsPage(driver);
-        formsPage.fillForm("text1234", 3);
-//        assertEquals("text1234",formsPage.getInputFieldText());
-//        assertEquals("Click to turn the switch OFF", formsPage.getSwitchFieldText());
-//        assertEquals("This app is awesome", formsPage.getDropdownText());
-//        formsPage.submitForm();
-//        assertEquals("This button is active", formsPage.getAlertMessageText());
-//        formsPage.closeAlert();
+        formsPage.fillForm("text1234", "This app is awesome");
+        assertEquals("text1234",formsPage.getInputFieldText());
+        assertEquals("Click to turn the switch OFF", formsPage.getSwitchFieldText());
+        assertEquals("This app is awesome", formsPage.getDropdownText());
+        formsPage.submitForm();
+        assertEquals("This button is active", formsPage.getAlertMessageText());
+        formsPage.closeAlert();
     }
 }

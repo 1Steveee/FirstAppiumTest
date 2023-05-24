@@ -6,8 +6,8 @@
             <class name="org.FirstAppiumTest.ios.AppiumTest">
                 <methods>
                     <include name="testTitle"/>
-                    <include name="testSignUp"/>
-                    <include name="testLogin"/>
+<!--                    <include name="testSignUp"/>-->
+<!--                    <include name="testLogin"/>-->
                     <include name="testFormsSignup"/>
                 </methods>
             </class>

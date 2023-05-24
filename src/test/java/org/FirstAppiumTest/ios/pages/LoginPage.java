@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class LoginPage {
 
-    private IOSDriver driver;
+    private final IOSDriver driver;
 
     public LoginPage(IOSDriver driver) {
         this.driver = driver;
@@ -36,11 +36,11 @@ public class LoginPage {
     }
 
     private WebElement successMessage() {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-//        WebElement element = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`label == \"Success\"`]"));
-//        return wait.until(ExpectedConditions.visibilityOf(element));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement element = driver.findElement(AppiumBy.accessibilityId("You are logged in!"));
+        return wait.until(ExpectedConditions.visibilityOf(element));
 
-        return driver.findElement(AppiumBy.accessibilityId("You are logged in!"));
+//        return driver.findElement(AppiumBy.accessibilityId("You are logged in!"));
 
     }
 
@@ -56,6 +56,7 @@ public class LoginPage {
         passwordField().clear();
         passwordField().sendKeys(password);
         loginButton().click();
+        driver.hideKeyboard();
     }
 
 
