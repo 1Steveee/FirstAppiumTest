@@ -2,10 +2,7 @@ package org.FirstAppiumTest.ios;
 
 import io.appium.java_client.ios.IOSDriver;
 
-import org.FirstAppiumTest.ios.pages.FormsPage;
-import org.FirstAppiumTest.ios.pages.HomePage;
-import org.FirstAppiumTest.ios.pages.LoginPage;
-import org.FirstAppiumTest.ios.pages.SignUpPage;
+import org.FirstAppiumTest.ios.pages.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -53,4 +50,21 @@ public class AppiumTest extends BaseTest{
         assertEquals("This button is active", formsPage.getAlertMessageText());
         formsPage.closeAlert();
     }
+
+
+
+    @Test
+    public void testSwipe() {
+        SwipePage swipePage = new SwipePage(driver);
+        swipePage.swipeHorizontal();
+        swipePage.swipeVertical();
+    }
+
+    @Test
+    public void testSwipeAndFindElement() {
+        SwipePage swipePage = new SwipePage(driver);
+        assertEquals("You found me!!!",swipePage.swipeToElement());
+    }
+
+
 }

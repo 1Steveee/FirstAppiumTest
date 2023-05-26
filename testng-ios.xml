@@ -6,9 +6,11 @@
             <class name="org.FirstAppiumTest.ios.AppiumTest">
                 <methods>
                     <include name="testTitle"/>
-<!--                    <include name="testSignUp"/>-->
-<!--                    <include name="testLogin"/>-->
+                    <exclude name="testSignUp"/>
+                    <exclude name="testLogin"/>
                     <include name="testFormsSignup"/>
+                    <include name="testSwipe"/>
+                    <include name="testSwipeAndFindElement"/>
                 </methods>
             </class>
         </classes>
