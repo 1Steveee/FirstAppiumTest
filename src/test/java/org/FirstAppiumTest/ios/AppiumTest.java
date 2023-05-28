@@ -66,5 +66,21 @@ public class AppiumTest extends BaseTest{
         assertEquals("You found me!!!",swipePage.swipeToElement());
     }
 
+    @Test
+    public void testWebViewPage() {
+        WebViewPage webViewPage = new WebViewPage(driver);
+        webViewPage.switchToWebView();
+        assertEquals("Next-gen browser and mobile automation test framework for Node.js",
+                webViewPage.getWebViewText());
+    }
+
+    @Test
+    public void testDragAndDrop() {
+        DragPage dragPage = new DragPage(driver);
+        dragPage.dragAndDropPieces();
+        assertEquals("Congratulations", dragPage.getCongratsMessage());
+
+    }
+
 
 }

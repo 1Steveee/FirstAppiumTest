@@ -11,6 +11,8 @@
                     <include name="testFormsSignup"/>
                     <include name="testSwipe"/>
                     <include name="testSwipeAndFindElement"/>
+                    <exclude name="testWebViewPage"/>
+                    <include name="testDragAndDrop"/>
                 </methods>
             </class>
         </classes>
